@@ -28,11 +28,23 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+<<<<<<< HEAD
 app.get('/', (_request, _response) => {
     // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
     res.render("index")
+=======
+app.get('/', (request, response) => {
+    response.render("index")
+>>>>>>> main
 })
 
+app.get('/detail', (request, response) => {
+    response.render('detail')
+})
+
+app.get('/posts', (request, response) => {
+    response.render('post')
+})
 
 app.listen(PORT, () => {
     console.log(`App is running on: localhost:${PORT}`);
