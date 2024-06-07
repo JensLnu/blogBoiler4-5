@@ -11,6 +11,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.static("public"));
 
+// Skapar const för users och posts datan
 const rawData = JSON.parse(fs.readFileSync("./mockdata/users.json", "utf-8"));
 const users = rawData.users;
 const posts = rawData.posts;
@@ -23,18 +24,16 @@ const __dirname = path.dirname(__filename);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
 app.get("/", (request, response) => {
-  // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
-  response.render("index", { users, posts});
+  response.render("index", { users, posts });
 });
 
-app.get("/detail", (request, response) => {
-  response.render("detail");
+app.get("/detail/:id", (request, response) => {
+  response.render("detail", { users, posts });
 });
 
 app.listen(PORT, () => {
   console.log(`App is running on: localhost:${PORT}`);
-//   console.log(users, 'users')
-//   console.log(posts, 'posts')
+  //   console.log(users, 'users')
+  //   console.log(posts, 'posts')
 });
