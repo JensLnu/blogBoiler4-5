@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-import express from "express";
-
-import { postRouter } from "./routes/post.mjs";
-=======
 import express from "express"
 import path from 'path'
 import { fileURLToPath } from 'url';
 import { detailRouter } from "./routes/detail.mjs"
 import { postRouter } from "./routes/post.mjs"
->>>>>>> main
 
 const app = express();
 const PORT = 3000;
