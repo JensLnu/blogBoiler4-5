@@ -1,12 +1,12 @@
-import express from "express"
+import express from "express";
 
-import { postRouter } from "./routes/post.mjs"
+import { postRouter } from "./routes/post.mjs";
 
-const app = express()
-const PORT = 3000
+const app = express();
+const PORT = 3000;
 
 
 
 app.listen(PORT, () => {
-    console.log(`App is running on: localhost:${PORT}`)
-})
+    console.log(`App is running on: localhost:${PORT}`);
+});
