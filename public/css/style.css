@@ -29,19 +29,23 @@ main{
   width: 100%;
 }
 
+
+/* MAIN PAGE, ALL POSTS */
 .all-posts {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, 500px);
   gap: 1rem;
 }
 
+
+/* INDIVIDUAL POSTS */
 .post{
-  width: fit-content;
+  width: 500px;
   padding: 1rem;
   border: 1px solid #ccc;
   color: #007BFF;
-
+  flex-grow: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -62,5 +66,23 @@ main{
 .interact-with-post{
   display: flex;
   gap: 1rem;
-  /* justify-content: space-between; */
+}
+
+
+/* USER LIST */
+.user-list{
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.user-image{
+  width: 30px;
+  border-radius: 100px;
 }

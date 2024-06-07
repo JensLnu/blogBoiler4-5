@@ -13,15 +13,16 @@
     </header>
     <main>
         <div>
-            <h1>Users</h1>
-            <ul>
+            <h3>Users</h3>
+            <ul class="user-list">
                 <% users.forEach(user => { %>
-                <li>
+                <li class="user">
                     <img
                     src="<%= user.userPic %>"
                     alt="Profile Picture of <%= user.userName %>"
+                    class="user-image"
                     />
-                    <strong><%= user.userName %></strong>
+                    <strong class="user-name"><%= user.userName %></strong>
                 </li>
                 <% }) %>
             </ul>
