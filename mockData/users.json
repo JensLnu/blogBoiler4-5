@@ -1,32 +1,32 @@
 {
   "users": [
     {
-      "userId": 1,
+      "id": 1,
       "userName": "Jens",
       "userPic": "../images/profilePics/jensa.png"
     },
     {
-      "userId": 2,
+      "id": 2,
       "userName": "David",
       "userPic": "../images/profilePics/david.png"
     },
     {
-      "userId": 3,
+      "id": 3,
       "userName": "Nyat",
       "userPic": "../images/profilePics/nyat.png"
     },
     {
-      "userId": 4,
+      "id": 4,
       "userName": "Toleen",
       "userPic": "../images/profilePics/toleen.png"
     },
     {
-      "userId": 5,
+      "id": 5,
       "userName": "Oscar",
       "userPic": "../images/profilePics/osciProfile.png"
     },
     {
-      "userId": 6,
+      "id": 6,
       "userName": "Emil",
       "userPic": "../images/profilePics/emil.png"
     }
@@ -34,7 +34,7 @@
 
   "posts": [
     {
-      "postId": 1,
+      "id": 1,
       "header": "Batman",
       "content": "Batman is arich mf",
       "tag": "cool",
@@ -53,7 +53,7 @@
     },
 
     {
-      "postId": 2,
+      "id": 2,
       "header": "Superman",
       "content": "Superman is powerfull",
       "tag": "cool",
@@ -72,7 +72,7 @@
     },
 
     {
-      "postId": 3,
+      "id": 3,
       "header": "Sommarlov",
       "content": "Hur gött ska de bli egentligen? eller blire bara back to work life?",
       "tag": "swag",
@@ -91,7 +91,7 @@
     },
 
     {
-      "postId": 4,
+      "id": 4,
       "header": "Osci",
       "content": "Hur gammal är han egentligen?!",
       "tag": "dope",
