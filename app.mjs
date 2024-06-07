@@ -1,5 +1,7 @@
 import express from "express"
 import path from 'path'
+import { fileURLToPath } from 'url';
+import { detailRouter } from "./routes/detail.mjs"
 import { postRouter } from "./routes/post.mjs"
 
 const app = express()
@@ -16,6 +18,11 @@ app.use(express.static(__dirname + '/public'));
 // Ställ in EJS som vy-motor
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+app.get('/', (req, res) => {
+    res.render("index")
+})
+
 
 app.listen(PORT, () => {
     console.log(`App is running on: localhost:${PORT}`)
