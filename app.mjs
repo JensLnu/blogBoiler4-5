@@ -1,5 +1,7 @@
 import express from "express"
 
+import { postRouter } from "./routes/post.mjs"
+
 const app = express()
 const PORT = 3000
 
