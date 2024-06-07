@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Posts</title>
-  </head>
-  <body>
-    <h1>Users</h1>
-    <ul>
-      <% users.forEach(user => { %>
-      <li>
-        <img
-          src="<%= user.userPic %>"
-          alt="Profile Picture of <%= user.userName %>"
-        />
-        <strong><%= user.userName %></strong>
-      </li>
-      <% }) %>
-    </ul>
-
-    <h1>Posts</h1>
-    <% posts.forEach(post => { %>
-    <div>
-      <h2><%= post.header %></h2>
-      <p><%= post.content %></p>
-      <p>
-        <small>Posted by: <%= post.postedBy %> on <%= post.postDate %></small>
-      </p>
-      <% if (post.postImg) { %>
-      <img src="<%= post.postImg %>" alt="Post Image" />
-      <% } %>
-      <div>
-        <h3>Comments</h3>
-        <ul>
-          <% post.commentsOnPost.forEach(comment => { %>
-          <li>
-            <strong><%= comment.postedBy %>:</strong> <%= comment.comment %>
-            (Likes: <%= comment.likes %>)
-          </li>
-          <% }) %>
-        </ul>
-      </div>
-      <p>Likes: <%= post.likes %> | Shared: <%= post.shared %></p>
-    </div>
-    <% }) %>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/images/profilePics/osciProfile.png" type="image/ico"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>BlogGBG</title>
+</head>
+<body>
+    <header>
+        All Posts!
+    </header>
+    <main>
+        <div>
+            <h1>Users</h1>
+            <ul>
+                <% users.forEach(user => { %>
+                <li>
+                    <img
+                    src="<%= user.userPic %>"
+                    alt="Profile Picture of <%= user.userName %>"
+                    />
+                    <strong><%= user.userName %></strong>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+        <!-- <h1>H1</h1> -->
+        <div class="all-posts">
+            <% posts.forEach(post => { %>
+            <div class="post">
+                <div class="post-header">
+                    <h3><%= post.header %></h3>
+                    <div class="post-detail">
+                        <div class="author">
+                            <div>(img tag)</div>
+                            <p><%= post.postedBy %></p>
+                        </div>
+                        <div class="date">
+                            <p><%= post.postDate %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p><%= post.content %></p>
+                    <% if (post.postImg) { %>
+                        <img src="<%= post.postImg %>" alt="Post Image" />
+                    <% } %>
+                </div>
+                <div class="interact-with-post">
+                    <p>post.addedComments</p>
+                    <p><%= post.likes %></p>
+                    <p><%= post.shared %></p>
+                    <p>add comment on current post</p>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
 </html>
