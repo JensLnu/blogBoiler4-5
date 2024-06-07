@@ -4,8 +4,8 @@ import { fileURLToPath } from 'url';
 import { detailRouter } from "./routes/detail.mjs"
 import { postRouter } from "./routes/post.mjs"
 
-const app = express()
-const PORT = 3000
+const app = express();
+const PORT = 3000;
 
 // Hämta den aktuella filens sökväg och katalog
 const __filename = fileURLToPath(import.meta.url);
@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`App is running on: localhost:${PORT}`)
-})
+    console.log(`App is running on: localhost:${PORT}`);
+});
