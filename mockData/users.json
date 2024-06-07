@@ -34,6 +34,7 @@
 
   "posts": [
     {
+      "postId": 1,
       "header": "Batman",
       "content": "Batman is arich mf",
       "postedBy": "userName",
@@ -41,16 +42,17 @@
       "postImg?": "../images/profilePics/osciProfile.png",
       "commentsOnPost": [
         {
-            "postedBy": "user",
-            "comment": "Hello, World.",
-            "likes": 0
+          "postedBy": "user",
+          "comment": "Hello, World.",
+          "likes": 0
         }
       ],
       "likes": 5,
       "shared": 10
     },
-    
+
     {
+      "postId": 2,
       "header": "Superman",
       "content": "Superman is powerfull",
       "postedBy": "userName",
@@ -58,9 +60,9 @@
       "postImg?": "../images/profilePics/osciProfile.png",
       "commentsOnPost": [
         {
-            "postedBy": "user",
-            "comment": "Very good sir...",
-            "likes": 1
+          "postedBy": "user",
+          "comment": "Very good sir...",
+          "likes": 1
         }
       ],
       "likes": 2,
@@ -68,6 +70,7 @@
     },
 
     {
+      "postId": 3,
       "header": "Sommarlov",
       "content": "Hur gött ska de bli egentligen? eller blire bara back to work life?",
       "postedBy": "Oscar",
@@ -75,9 +78,9 @@
       "postImg?": "src",
       "commentsOnPost": [
         {
-            "postedBy": "David",
-            "comment": "Jag ska bara jobba och sola!",
-            "likes": 6
+          "postedBy": "David",
+          "comment": "Jag ska bara jobba och sola!",
+          "likes": 6
         }
       ],
       "likes": 16,
@@ -85,6 +88,7 @@
     },
 
     {
+      "postId": 4,
       "header": "Osci",
       "content": "Hur gammal är han egentligen?!",
       "postedBy": "Jens",
@@ -92,9 +96,9 @@
       "postImg?": "../images/profilePics/osciProfile.png",
       "commentsOnPost": [
         {
-            "postedBy": "Emil",
-            "comment": "antagligen 12?",
-            "likes": 3
+          "postedBy": "Emil",
+          "comment": "antagligen 12?",
+          "likes": 3
         }
       ],
       "likes": 5,
