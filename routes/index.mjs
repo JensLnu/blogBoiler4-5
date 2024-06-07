@@ -1,13 +1,24 @@
-import { Router } from "express";
+import express from "express";
+import fs from "fs";
 
-export const postRouter = Router();
+const router = express.Router();
 
-postRouter.get("/", () => {});
+const rawData = JSON.parse(fs.readFileSync("./mockdata/users.json", "utf-8"));
+const users = rawData.users;
+const posts = rawData.posts;
 
-postRouter.post("/", () => {});
+router.get("/", (request, response) => {
+  response.render("index", { users, posts });
+});
 
-postRouter.put("/", () => {});
+router.get("/", () => {});
 
-postRouter.patch("/", () => {});
+router.post("/", () => {});
 
-postRouter.delete("/", () => {});
+router.put("/", () => {});
+
+router.patch("/", () => {});
+
+router.delete("/", () => {});
+
+export { router as postRouter };
