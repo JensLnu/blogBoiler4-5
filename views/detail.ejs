@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail</title>
+    <title><%= post.header %></title>
   </head>
   <body>
-    <header>
-      <h1>Details</h1>
-    </header>
+    <h1><%= post.header %></h1>
+    <p><%= post.content %></p>
+    <p>
+      <small>Posted by: <%= post.postedBy %> on <%= post.postDate %></small>
+    </p>
+    <% if (post.postImg) { %>
+    <img src="<%= post.postImg %>" alt="Post Image" />
+    <% } %>
+    <div>
+      <h3>Comments</h3>
+      <ul>
+        <% post.commentsOnPost.forEach(comment => { %>
+        <li>
+          <strong><%= comment.postedBy %>:</strong> <%= comment.comment %>
+          (Likes: <%= comment.likes %>)
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+    <p>Likes: <%= post.likes %> | Shared: <%= post.shared %></p>
+    <a href="/">Back to posts</a>
   </body>
 </html>

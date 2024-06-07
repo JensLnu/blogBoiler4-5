@@ -29,11 +29,15 @@ app.get("/", (request, response) => {
 });
 
 app.get("/detail/:id", (request, response) => {
-  response.render("detail", { users, posts });
+  const postId = parseInt(request.params.id);
+  const post = posts.find((p) => p.postId === postId);
+  if (post) {
+    response.render("detail", { post });
+  } else {
+    response.status(404).send("Post not found");
+  }
 });
 
 app.listen(PORT, () => {
   console.log(`App is running on: localhost:${PORT}`);
-  //   console.log(users, 'users')
-  //   console.log(posts, 'posts')
 });
