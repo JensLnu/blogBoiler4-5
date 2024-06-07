@@ -20,10 +20,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Hämta JSON-filen synkront
-const dataPath = path.join(__dirname, "./mockData/users.json");
-const rawData = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
-const users = rawData.users;
-const posts = rawData.posts;
+const pathToUsers = path.join(__dirname, "./mockData/users.json");
+const pathToPosts = path.join(__dirname, "./mockData/posts.json");
+const users = JSON.parse(fs.readFileSync(pathToUsers, "utf-8"));
+const posts = JSON.parse(fs.readFileSync(pathToPosts, "utf-8"));
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -39,6 +39,7 @@ app.listen(PORT, () => {
   // console.log(posts, 'posts')
 });
 
-export {dataPath}
 export {users}
+export {pathToUsers}
 export {posts}
+export {pathToPosts}

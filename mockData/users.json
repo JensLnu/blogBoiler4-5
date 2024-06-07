@@ -1,112 +1,32 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "userName": "Jens",
-      "userPic": "../images/profilePics/jensa.png"
-    },
-    {
-      "id": 2,
-      "userName": "David",
-      "userPic": "../images/profilePics/david.png"
-    },
-    {
-      "id": 3,
-      "userName": "Nyat",
-      "userPic": "../images/profilePics/nyat.png"
-    },
-    {
-      "id": 4,
-      "userName": "Toleen",
-      "userPic": "../images/profilePics/toleen.png"
-    },
-    {
-      "id": 5,
-      "userName": "Oscar",
-      "userPic": "../images/profilePics/osciProfile.png"
-    },
-    {
-      "id": 6,
-      "userName": "Emil",
-      "userPic": "../images/profilePics/emil.png"
-    }
-  ],
-
-  "posts": [
-    {
-      "id": "id1",
-      "header": "Batman",
-      "content": "Batman is arich mf",
-      "tag": "cool",
-      "postedBy": "userName",
-      "postDate": "2020-10-11",
-      "postImg?": "../images/profilePics/osciProfile.png",
-      "commentsOnPost": [
-        {
-          "postedBy": "user",
-          "comment": "Hello, World.",
-          "likes": 0
-        }
-      ],
-      "likes": 5,
-      "shared": 10
-    },
-
-    {
-      "id": "id2",
-      "header": "Superman",
-      "content": "Superman is powerfull",
-      "tag": "cool",
-      "postedBy": "userName",
-      "postDate": "202-2-10",
-      "postImg?": "../images/profilePics/osciProfile.png",
-      "commentsOnPost": [
-        {
-          "postedBy": "user",
-          "comment": "Very good sir...",
-          "likes": 1
-        }
-      ],
-      "likes": 2,
-      "shared": 5
-    },
-
-    {
-      "id": "id3",
-      "header": "Sommarlov",
-      "content": "Hur gött ska de bli egentligen? eller blire bara back to work life?",
-      "tag": "swag",
-      "postedBy": "Oscar",
-      "postDate": "20/7-2023",
-      "postImg?": "src",
-      "commentsOnPost": [
-        {
-          "postedBy": "David",
-          "comment": "Jag ska bara jobba och sola!",
-          "likes": 6
-        }
-      ],
-      "likes": 16,
-      "shared": 20
-    },
-
-    {
-      "id": "id4",
-      "header": "Osci",
-      "content": "Hur gammal är han egentligen?!",
-      "tag": "dope",
-      "postedBy": "Jens",
-      "postDate": "6/7-2024",
-      "postImg?": "../images/profilePics/osciProfile.png",
-      "commentsOnPost": [
-        {
-          "postedBy": "Emil",
-          "comment": "antagligen 12?",
-          "likes": 3
-        }
-      ],
-      "likes": 5,
-      "shared": 2
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "userName": "Jens",
+    "userPic": "../images/profilePics/jensa.png"
+  },
+  {
+    "id": 2,
+    "userName": "David",
+    "userPic": "../images/profilePics/david.png"
+  },
+  {
+    "id": 3,
+    "userName": "Nyat",
+    "userPic": "../images/profilePics/nyat.png"
+  },
+  {
+    "id": 4,
+    "userName": "Toleen",
+    "userPic": "../images/profilePics/toleen.png"
+  },
+  {
+    "id": 5,
+    "userName": "Oscar",
+    "userPic": "../images/profilePics/osciProfile.png"
+  },
+  {
+    "id": 6,
+    "userName": "Emil",
+    "userPic": "../images/profilePics/emil.png"
+  }
+]
