@@ -39,5 +39,6 @@ app.listen(PORT, () => {
   // console.log(posts, 'posts')
 });
 
+export {dataPath}
 export {users}
 export {posts}

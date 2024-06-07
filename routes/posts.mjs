@@ -1,5 +1,5 @@
 import express from "express";
-import { getPostId } from "../middelware/getPostId.mjs";
+import { getPost } from "../middelware/getPostId.mjs";
 import { posts } from "../app.mjs";
 
 const router = express.Router();
@@ -11,25 +11,25 @@ router.post("/post", (request, response) => {
     return response.status(201);
 });
 
-router.get("/post/:id", getPostId, (request, response) => {
-    const post = posts[request.postId];
-    post ? response.render("detail", { post }) :
-        response.status(404).send("Post not found!");
+router.get("/post/:id", getPost, (request, response) => {
+    console.log(request.post, 'postId')
+    const post = request.post;
+    response.render("detail", { post })
 });
 
-router.put("/post/:id", getPostId, (request, response) => {
+router.put("/post/:id", getPost, (request, response) => {
     const { body } = request;
     posts[request.postId] = { id: posts[request.postId].id, ...body };
     return response.sendStatus(200);
 });
 
-router.patch("/post/:id", getPostId, (request, response) => {
+router.patch("/post/:id", getPost, (request, response) => {
     const { body } = request;
     posts[request.postId] = { ...posts[request.postId], ...body };
     return response.sendStatus(200);
 });
 
-router.delete("/post/:id", getPostId, (request, response) => {
+router.delete("/post/:id", getPost, (request, response) => {
     posts.splice(request.postId, 1);
     return response.status(204).send({ msg: `You deleted post with header: ${posts[request.postId]}` });
 });

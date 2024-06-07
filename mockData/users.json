@@ -34,7 +34,7 @@
 
   "posts": [
     {
-      "id": 1,
+      "id": "id1",
       "header": "Batman",
       "content": "Batman is arich mf",
       "tag": "cool",
@@ -53,7 +53,7 @@
     },
 
     {
-      "id": 2,
+      "id": "id2",
       "header": "Superman",
       "content": "Superman is powerfull",
       "tag": "cool",
@@ -72,7 +72,7 @@
     },
 
     {
-      "id": 3,
+      "id": "id3",
       "header": "Sommarlov",
       "content": "Hur gött ska de bli egentligen? eller blire bara back to work life?",
       "tag": "swag",
@@ -91,7 +91,7 @@
     },
 
     {
-      "id": 4,
+      "id": "id4",
       "header": "Osci",
       "content": "Hur gammal är han egentligen?!",
       "tag": "dope",
