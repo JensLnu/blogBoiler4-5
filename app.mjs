@@ -23,14 +23,10 @@ const __dirname = path.dirname(__filename);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.get('/', (_request, _response) => {
-    // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
-    res.render("index")
-})
 
 app.get("/", (request, response) => {
   // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
-  response.render("index");
+  response.render("index", { users, posts});
 });
 
 app.get("/detail", (request, response) => {
@@ -39,6 +35,6 @@ app.get("/detail", (request, response) => {
 
 app.listen(PORT, () => {
   console.log(`App is running on: localhost:${PORT}`);
-  // console.log(users, 'users')
-  // console.log(posts, 'posts')
+//   console.log(users, 'users')
+//   console.log(posts, 'posts')
 });
