@@ -3,22 +3,22 @@
     {
       "userId": 1,
       "userName": "Jens",
-      "userPic": "src"
+      "userPic": "../images/profilePics/jensa.png"
     },
     {
       "userId": 2,
       "userName": "David",
-      "userPic": "src"
+      "userPic": "../images/profilePics/david.png"
     },
     {
       "userId": 3,
       "userName": "Nyat",
-      "userPic": "src"
+      "userPic": "../images/profilePics/nyat.png"
     },
     {
       "userId": 4,
       "userName": "Toleen",
-      "userPic": "src"
+      "userPic": "../images/profilePics/toleen.png"
     },
     {
       "userId": 5,
@@ -28,7 +28,7 @@
     {
       "userId": 6,
       "userName": "Emil",
-      "userPic": "src"
+      "userPic": "../images/profilePics/emil.png"
     }
   ],
 
