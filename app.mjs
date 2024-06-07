@@ -1,48 +1,44 @@
-import express from "express"
-import path from 'path'
+import express from "express";
+import path from "path";
 import fs from "fs";
-import { fileURLToPath } from 'url';
-import { detailRouter } from "./routes/detail.mjs"
-import { postRouter } from "./routes/post.mjs"
+import { fileURLToPath } from "url";
+import { detailRouter } from "./routes/detail.mjs";
+import { postRouter } from "./routes/index.mjs";
 
-app.use(express.json());
 const app = express();
-app.use(express.static('public'));
 const PORT = 3000;
 
-const rawData =JSON.parse(fs.readFileSync('./mockdata/users.json', 'utf-8'));
-const users = rawData.users
-const posts = rawData.posts
+app.use(express.json());
+app.use(express.static("public"));
 
-
+const rawData = JSON.parse(fs.readFileSync("./mockdata/users.json", "utf-8"));
+const users = rawData.users;
+const posts = rawData.posts;
 
 // Hämta den aktuella filens sökväg och katalog
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Statiska filer (om du har några)
-app.use(express.static('views'));
-app.use(express.static(__dirname + '/public'));
-
 // Ställ in EJS som vy-motor
-app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 app.get('/', (_request, _response) => {
     // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
     res.render("index")
 })
 
-app.get('/detail', (request, response) => {
-    response.render('detail')
-})
+app.get("/", (request, response) => {
+  // läs in 'users' och 'posts' till er EJS fil Oscar/Nyat
+  response.render("index");
+});
 
-app.get('/posts', (request, response) => {
-    response.render('post')
-})
+app.get("/detail", (request, response) => {
+  response.render("detail");
+});
 
 app.listen(PORT, () => {
-    console.log(`App is running on: localhost:${PORT}`);
-    // console.log(users, 'users')
-    // console.log(posts, 'posts')
+  console.log(`App is running on: localhost:${PORT}`);
+  // console.log(users, 'users')
+  // console.log(posts, 'posts')
 });
