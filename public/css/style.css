@@ -23,12 +23,19 @@ body {
   color: #333;
 }
 
+header, footer {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+}
+
 main{
   padding: 1rem;
   flex-grow: 1;
   width: 100%;
 }
-
 
 /* MAIN PAGE, ALL POSTS */
 .all-posts {
@@ -36,6 +43,7 @@ main{
   display: grid;
   grid-template-columns: repeat(auto-fit, 500px);
   gap: 1rem;
+  justify-content: center;
 }
 
 
@@ -70,6 +78,14 @@ main{
 
 
 /* USER LIST */
+.all-users {
+  padding: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .user-list{
   list-style-type: none;
   display: flex;
@@ -86,3 +102,4 @@ main{
   width: 30px;
   border-radius: 100px;
 }
+
