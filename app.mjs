@@ -30,6 +30,9 @@ app.use(express.static("public"));
 
 // Routes
 app.use("/", landingPageRouter)
+/////////////////////////////////////////////////////////////////////////
+// Här kan vi använda '/posts' och ta bort alla '/posts' från posts.mjs
+/////////////////////////////////////////////////////////////////////////
 app.use("/", postRouter)
 // app.use("/", detailRouter)
 
