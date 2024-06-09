@@ -19,6 +19,7 @@ router.post("/post", (request, response) => {
     return response.status(201);
 });
 
+
 router.get("/post/:id", getPostAndIndex, (request, response) => {
     const post = request.post;
     response.render("detail", { post })

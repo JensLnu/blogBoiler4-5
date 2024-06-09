@@ -6,10 +6,12 @@ import { fileURLToPath } from "url";
 // routes
 import { landingPageRouter } from "./routes/index.mjs";
 import { postRouter } from "./routes/posts.mjs";
+import {newPost } from "./routes/newPost.mjs";
 // import { detailRouter } from "./routes/detail.mjs";
 
 const app = express();
 const PORT = 3000;
+
 
 // Hämta den aktuella filens sökväg och katalog
 const __filename = fileURLToPath(import.meta.url);
@@ -31,10 +33,12 @@ app.use(express.static("public"));
 // Routes
 app.use("/", landingPageRouter)
 app.use("/", postRouter)
+app.use("/", newPost)
 // app.use("/", detailRouter)
 
+
 app.listen(PORT, () => {
-  console.log(`App is running on: localhost:${PORT}`);
+  console.log(`App is running on: localhost:${PORT} http://localhost:3000/`);
   // console.log(users, 'users')
   // console.log(posts, 'posts')
 });

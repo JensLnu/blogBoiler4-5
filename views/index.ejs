@@ -8,61 +8,75 @@
       href="../public/images/profilePics/osciProfile.png"
       type="image/ico"
     />
+
+    <!-- Share"-ikon med Font Awesome och göra den klickbar  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>BlogGBG</title>
   </head>
   <body>
     <header>
-        <h3>All Posts!</h3>
+      <h3>BlogGBG</h3>
+      <h3>All Posts!</h3>
+      <button id="addNewPost">New post</button>
     </header>
     <main>
-        <div class="all-users">
-            <h3>Users</h3>
-            <ul class="user-list">
-                <% users.forEach(user => { %>
-                <li class="user">
-                    <img
-                    src="<%= user.userPic %>"
-                    alt="Profile Picture of <%= user.userName %>"
-                    class="user-image"
-                    />
-                    <strong class="user-name"><%= user.userName %></strong>
-                </li>
-                <% }) %>
-            </ul>
-        </div>
-        <!-- <h1>H1</h1> -->
-        <div class="all-posts">
-            <% posts.forEach(post => { %>
-            <div class="post">
-                <div class="post-header">
-                    <h3><%= post.header %></h3>
-                    <div class="post-detail">
-                        <div class="author">
-                            <div>(img tag)</div>
-                            <p><%= post.postedBy %></p>
-                        </div>
-                        <div class="date">
-                            <p><%= post.postDate %></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <p><%= post.content %></p>
-                    <% if (post.postImg) { %>
-                        <img src="<%= post.postImg %>" alt="Post Image" />
-                    <% } %>
-                </div>
-                <div class="interact-with-post">
-                    <p>post.addedComments</p>
-                    <p><%= post.likes %></p>
-                    <p><%= post.shared %></p>
-                    <p>add comment on current post</p>
-                </div>
+      <div class="all-users">
+        <h3>Users</h3>
+        <ul class="user-list">
+          <% users.forEach(user => { %>
+          <li class="user">
+            <img
+              src="<%= user.userPic %>"
+              alt="Profile Picture of <%= user.userName %>"
+              class="user-image"
+            />
+            <strong class="user-name"><%= user.userName %></strong>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <!-- <h1>H1</h1> -->
+      <div class="all-posts">
+        <% posts.forEach(post => { %>
+        <div class="post">
+          <div class="post-header">
+            <h3><%= post.header %></h3>
+            <div class="post-detail">
+              <div class="author">
+                <img src="<%= post.postedByImage %>" class="user-image" />
+                <p><%= post.postedBy %></p>
+              </div>
+              <div class="date">
+                <p><%= post.postDate %></p>
+              </div>
             </div>
-            <% }) %>
+          </div>
+          <div class="post-content">
+            <p><%= post.content %></p>
+            <% if (post.postImg) { %>
+            <img src="<%= post.postImg %>" alt="Post Image" />
+            <% } %>
+          </div>
+          <div class="interact-with-post">
+            <button class="like-btn">👍 <%= post.likes %></button>
+            <br />
+            <button class="share-btn">
+              <i class="fas fa-share"></i> <span>Share</span> <%= post.shared %>
+            </button>
+          </div>
         </div>
+        <% }) %>
+      </div>
     </main>
     <footer>footer</footer>
   </body>
+  <script type="text/javascript">
+    document.getElementById("addNewPost").onclick = function () {
+      location.href = "http://localhost:3000/newPost";
+    };
+  </script>
 </html>

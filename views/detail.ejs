@@ -6,26 +6,43 @@
     <title><%= post.header %></title>
   </head>
   <body>
-    <h1><%= post.header %></h1>
-    <p><%= post.content %></p>
-    <p>
-      <small>Posted by: <%= post.postedBy %> on <%= post.postDate %></small>
-    </p>
-    <% if (post.postImg) { %>
-    <img src="<%= post.postImg %>" alt="Post Image" />
-    <% } %>
-    <div>
-      <h3>Comments</h3>
-      <ul>
-        <% post.commentsOnPost.forEach(comment => { %>
-        <li>
-          <strong><%= comment.postedBy %>:</strong> <%= comment.comment %>
-          (Likes: <%= comment.likes %>)
-        </li>
-        <% }) %>
-      </ul>
+    <div
+      class="container"
+      style="
+        border: 1px solid;
+        width: fit-content;
+        padding: 1rem;
+        border-radius: 5px;
+      "
+    >
+      <h1><%= post.header %></h1>
+      <p><%= post.content %></p>
+      <p>
+        <small>Posted by: <%= post.postedBy %> on <%= post.postDate %></small>
+      </p>
+      <% if (post.postImg) { %>
+      <img
+        src="<%= post.postImg %>"
+        alt="Post Image"
+        style="width: 300px; border-radius: 5px"
+      />
+      <% } %>
+      <div>
+        <h3 style="border-bottom: 1px solid">Comments</h3>
+        <ul>
+          <% post.commentsOnPost.forEach(comment => { %>
+          <li style="list-style-type: none">
+            <strong><%= comment.postedBy %>:</strong> <%= comment.comment %>
+            (Likes: <%= comment.likes %>)
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <p>
+        Likes: <%= post.likes %> <br />
+        Shared: <%= post.shared %>
+      </p>
+      <a href="/">Back to posts</a>
     </div>
-    <p>Likes: <%= post.likes %> | Shared: <%= post.shared %></p>
-    <a href="/">Back to posts</a>
   </body>
 </html>
