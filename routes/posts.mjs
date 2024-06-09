@@ -11,6 +11,7 @@ const updateDb = () => {
     fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
 }
 
+// Validation för denna, kolla att bodyn är korrekt formaterad.
 router.post("/post", (request, response) => {
     const { body } = request;
     let requestPostId = { id: nanoid(), ...body };
@@ -25,6 +26,7 @@ router.get("/post/:id", getPostAndIndex, (request, response) => {
     response.render("detail", { post })
 });
 
+// validation för korrekt format behövs
 router.put("/post/:id", getPostAndIndex, (request, response) => {
     const { body } = request;
     posts[request.postIndex] = { id: request.post.id, ...body }
@@ -46,6 +48,3 @@ router.delete("/post/:id", getPostAndIndex, (request, response) => {
 });
 
 export { router as postRouter };
-
-// att göra
-// validering av inputs

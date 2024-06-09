@@ -23,10 +23,10 @@
     "header": "Superman",
     "content": "Super power: Omnipotens ",
     "tag": "cool",
-    "postedBy": "Emil",
-    "postedByImage": "../images/profilePics/emil.png",
+    "postedBy": "David",
+    "postedByImage": "../images/profilePics/david.png",
     "postDate": "6/7-2024",
-    "postImg": "../images/superman.png",
+    "postImg?": "../images/profilePics/david.png",
     "commentsOnPost": [
       {
         "postedBy": "Emil",
