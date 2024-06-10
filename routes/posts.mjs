@@ -2,6 +2,7 @@ import express from "express";
 import fs from 'fs'
 import { getPostAndIndex } from "../middelware/getPostId.mjs";
 import { posts } from "../app.mjs";
+import { users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
 import { nanoid } from "nanoid";
 import { checkSchema, validationResult } from "express-validator";
@@ -22,7 +23,22 @@ router.post("/", checkSchema(createPostValidationSchema), getTodaysDate, (reques
         return response.status(400).send({ errors: resultErrors.array() })
     } 
 
-    // request.todaysDate // lägg till på den nya posten
+    // här behöver också 
+    /*
+    "postedBy": "David",
+    "postedByImage": "../images/profilePics/david.png",
+    "postDate": request.todaysDate // lägg till på den nya posten
+    "postImg": "../images/Dr-manhatan.png",
+    "commentsOnPost": [
+      {
+        "postedBy": "David",
+        "comment": "Testing...",
+        "likes": 10
+      }
+    ],
+    "likes": 50,
+    "shared": 20
+    */
     const { body } = request;
     let requestPostId = { id: nanoid(), ...body };
     posts.push(requestPostId);
