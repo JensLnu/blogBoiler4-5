@@ -12,7 +12,6 @@ import {newPost } from "./routes/newPost.mjs";
 const app = express();
 const PORT = 3000;
 
-
 // Hämta den aktuella filens sökväg och katalog
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,13 +31,9 @@ app.use(express.static("public"));
 
 // Routes
 app.use("/", landingPageRouter)
-/////////////////////////////////////////////////////////////////////////
-// Här kan vi använda '/posts' och ta bort alla '/posts' från posts.mjs
-/////////////////////////////////////////////////////////////////////////
-app.use("/", postRouter)
+app.use("/post", postRouter)
 app.use("/", newPost)
 // app.use("/", detailRouter)
-
 
 app.listen(PORT, () => {
   console.log(`App is running on: localhost:${PORT} http://localhost:3000/`);
