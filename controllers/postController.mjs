@@ -2,8 +2,12 @@ import { validationResult } from "express-validator";
 import { nanoid } from "nanoid";
 import { posts, users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
-import fs from 'fs';
-import { connectToMongoDB } from "../database/connectToMongoDb.mjs";
+
+
+import fs from 'fs'
+import { postModel } from "../models/postModel.mjs";
+
+
 
 
 const updateDb = () => {

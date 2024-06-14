@@ -22,15 +22,27 @@ const postSchema = new mongoose.Schema({
         required: false
     },
     postDate: {
-        type: Date,
-        required: false
+        type: String,
+        required: true
     },
-    postedByImage: {
+    postImg: {
         type: String,
         required: false
+    },
+    commentsOnPost: {
+        type: Array,
+        required: false
+    },
+    likes: {
+        type: Number,
+        required: true
+    },
+    sharded: {
+        type: Number,
+        required: true
     }
 })
 
-const postModel = mongoose.model("books", bookSchema)
+const postModel = mongoose.model("posts", postSchema)
 
 export { postModel }
