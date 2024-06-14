@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { posts } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
 import fs from 'fs'
-import { postModel } from "../models/postsModel.mjs";
+import { postModel } from "../models/postModel.mjs";
 
 
 
