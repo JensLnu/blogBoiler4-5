@@ -11,6 +11,7 @@ const router = express.Router();
 router.get("/", async (request, response) => {
     try {
         let posts = await postModel.find()
+        console.log(posts, 'posts')
         let users = await userModel.find()
         response.render("index", { users, posts });
     }

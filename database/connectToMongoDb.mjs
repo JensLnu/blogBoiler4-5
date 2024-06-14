@@ -1,11 +1,16 @@
 import mongoose from "mongoose"
 
-// const dbUrl = "mongodb+srv://davidheidari2:9GD3YTPcU8s2i3LE@superheroes.bydwz4d.mongodb.net/"
-const dbUrl = "mongodb://127.0.0.1:27017/gbgBlogBoiler"
+// const uri = "mongodb+srv://JensaFixar:wgBSOn9ivoiqvf6d@gbgBlogBoiler.f1lv3mv.mongodb.net/?retryWrites=true&w=majority&appName=JensFixar"
+// const uri = "mongodb+srv://davidheidari2:9GD3YTPcU8s2i3LE@gbgBlog.bydwz4d.mongodb.net/"
+const uri = "mongodb+srv://JensaFixar:wgBSOn9ivoiqvf6d@jensfixar.f1lv3mv.mongodb.net/"
+
+
+// fungerar lokalt 
+// const uri = "mongodb://127.0.0.1:27017/gbgBlogBoiler"
 
 let connectToMongoDB = () => {
     try {
-        mongoose.connect(dbUrl)
+        mongoose.connect(uri)
         console.log(`Database: MongoDB is connected...`)
     }
     catch (error) {
