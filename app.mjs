@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
+import { connectToMongoDB } from "./database/connectToMongoDb.mjs";
 
 // routes
 import { landingPageRouter } from "./routes/index.mjs";
@@ -28,6 +29,7 @@ const posts = JSON.parse(fs.readFileSync(pathToPosts, "utf-8"));
 
 app.use(express.json());
 app.use(express.static("public"));
+connectToMongoDB();
 
 // Routes
 app.use("/", landingPageRouter)
