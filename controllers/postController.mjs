@@ -1,61 +1,58 @@
 import { validationResult } from "express-validator";
 import { nanoid } from "nanoid";
-import { posts } from "../app.mjs";
+import { posts, users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
-import fs from 'fs'
-
+import fs from 'fs';
+import { connectToMongoDB } from "../database/connectToMongoDb.mjs";
 
 
 const updateDb = () => {
     fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
+
 }
 
 const postPost = async (request, response) => {
     // validation
-    
     const resultErrors = validationResult(request)
     if (!resultErrors.isEmpty()) {
         return response.status(400).send({ errors: resultErrors.array() })
-        } 
-        
-        // här behöver också 
-        /*
-        "header": "Batman",
-        "content": "Super power: Very rich",
-        "tag": "cool",
-        "postedBy": "David",
-        "postedByImage": "../images/profilePics/david.png",
-        "postDate": request.todaysDate // lägg till på den nya posten
-        "postImg": "../images/Dr-manhatan.png",
-        "commentsOnPost": [
-            {
-                "postedBy": "David",
-                "comment": "Testing...",
-                "likes": 10
-                }
-                ],
-                "likes": 50,
-                "shared": 20
-                */
+    }
+    const { header, content, userId} = request.body;
+    
+    const findUserById = users.find((user) => {
+        return user.id == parseInt(userId);
+    })
 
-    // HÄMTA URL FRÅN USERS BASERAT PÅ ANVÄNDARNAMN SOM SKICKAS I BODYN
-    // LÄGG TILL DAGENS DATUM
+    // den måste utvecklas mer för att ge en error page.
+    if (!findUserById) {
+        return console.error("User not found.")
+    }
+
+    const newPost = {
+        id: nanoid(),
+        header,
+        content,
+        tag: null,
+        postedBy: findUserById.userName,
+        postedByImage: findUserById.userPic, // Assumera att "profileImage" är en egenskap i user-objektet
+        postDate: request.todaysDate,
+        postImg:null,
+        commentsOnPost: [],
+        likes: 0,
+        shared: 0
+    }
+       
     // LÄGG TILL MÖJLIGHETEN ATT LÄGGA TILL BILD I FORMEN
-    // SÄTT HEADER TILL TITLE FRÅN BODY
-    // SÄTT CONTENT TILL BODY.content
     // INPUT FÖR TAGS? ELLER TAGS FRÅN CONTENT?
-    // SÄTT COMMENTSONPOST TILL TOM ARRAY
-    // SÄTT LIKES OCH SHARES TILL 0
     // VISA ERROR MESSAGE I BROWSER ISTÄLLET FÖR AT SKRIVA UT ERROR-LOGGEN
 
     // FIXA MODAL ELLER IN-LINE FÖR FORMEN
     // FIXA DISPLAY FÖR POSTS (EN I TAGET, INTE FLERA PÅ SAMMA RAD)
 
-    const { body } = request;
-    let requestPostId = { id: nanoid(), ...body };
-    posts.push(requestPostId);
+
+    posts.push(newPost);
     updateDb()
-    return response.status(201);
+    return response.status(201).send(newPost);
 }
 
 const getPost = async (request, response) => {
