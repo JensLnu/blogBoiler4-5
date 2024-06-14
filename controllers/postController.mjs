@@ -2,8 +2,6 @@ import { validationResult } from "express-validator";
 import { nanoid } from "nanoid";
 import { posts, users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
-
-
 import fs from 'fs'
 import { postModel } from "../models/postModel.mjs";
 
@@ -11,7 +9,7 @@ import { postModel } from "../models/postModel.mjs";
 
 
 const updateDb = () => {
-    fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
+    // fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
 
 }
 
