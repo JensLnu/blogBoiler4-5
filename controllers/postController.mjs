@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import { posts, users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
 import fs from 'fs'
+import { postModel } from "../models/postModel.mjs";
 
 const updateDb = () => {
     // Uppdaterar JSON-filen
@@ -16,15 +17,15 @@ const postPost = async (request, response) => {
     if (!resultErrors.isEmpty()) {
         return response.status(400).send({ errors: resultErrors.array() })
     }
-    const { header, content, userId} = request.body;
-    
+    const { header, content, userId } = request.body;
+
     const findUserById = users.find((user) => {
         return user.id == parseInt(userId);
     })
 
     // den måste utvecklas mer för att ge en error page.
     if (!findUserById) {
-        return response.status(404).send({msg: "User not found."})
+        return response.status(404).send({ msg: "User not found." })
     }
 
     const newPost = {
@@ -35,12 +36,12 @@ const postPost = async (request, response) => {
         postedBy: findUserById.userName,
         postedByImage: findUserById.userPic, // Assumera att "profileImage" är en egenskap i user-objektet
         postDate: request.todaysDate,
-        postImg:null,
+        postImg: null,
         commentsOnPost: [],
         likes: 0,
         shared: 0
     }
-       
+
     // LÄGG TILL MÖJLIGHETEN ATT LÄGGA TILL BILD I FORMEN
     // INPUT FÖR TAGS? ELLER TAGS FRÅN CONTENT?
     // VISA ERROR MESSAGE I BROWSER ISTÄLLET FÖR AT SKRIVA UT ERROR-LOGGEN
@@ -58,6 +59,18 @@ const getPost = async (request, response) => {
 }
 
 const putPost = async (request, response) => {
+    // try {
+    //     const post = await request.post
+    //     let updatedPost = await post.save()
+    //     return response.sendStatus(200);
+
+    // } catch (error) {
+
+    // }
+
+    // HAR DENNA NÅGONSIN FUNGERAT?
+
+
     const { body } = request;
     posts[request.postIndex] = { id: request.post.id, ...body }
     updateDb()
@@ -72,9 +85,23 @@ const patchPost = async (request, response) => {
 }
 
 const deletePost = async (request, response) => {
-    posts.splice(request.postId, 1);
-    updateDb()
-    return response.status(204).send({ msg: `You deleted post with header: ${posts[request.postId]}` });
+    try {
+        const post = await request.post
+        const deletedPost = await postModel.findByIdAndDelete(post.id)
+
+        if (!deletedPost) return response.status(404).send(`404: Post not found with id: ${post.id}`)
+
+        response.status(204).send(`Post with id: ${post.id} and header: ${post.header}. Deleted successfully...`)
+        // här finns det mer att önska av UI
+    } catch (error) {
+        response.status(500).send(error)
+    }
+
+    // FUNKTIONALLITET NÄR VI ANVÄNDE JSON FILEN
+    
+    // posts.splice(request.postId, 1);
+    // updateDb()
+    // return response.status(204).send({ msg: `You deleted post with header: ${posts[request.postId]}` });
 }
 
 export { postPost, getPost, putPost, patchPost, deletePost }

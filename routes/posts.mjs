@@ -1,5 +1,4 @@
 import { getPostAndIndex } from "../middelware/getPostId.mjs";
-import { users } from "../app.mjs";
 import { checkSchema } from "express-validator";
 import {createPostValidationSchema } from "../validationSchemas/createPostValidationSchema.mjs";
 import { getTodaysDate } from "../middelware/getTodaysDate.mjs";
@@ -17,10 +16,10 @@ router.post("/", checkSchema(createPostValidationSchema), getTodaysDate, postPos
 router.get("/:index", getPostAndIndex, getPost);
 
 // validation för korrekt format behövs
-router.put("/:id", getPostAndIndex, putPost);
+router.put("/:index", getPostAndIndex, putPost);
 
-router.patch("/:id", getPostAndIndex, patchPost);
+router.patch("/:index", getPostAndIndex, patchPost);
 
-router.delete("/:id", getPostAndIndex, deletePost);
+router.delete("/:index", getPostAndIndex, deletePost);
 
 export { router as postRouter };
