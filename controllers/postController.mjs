@@ -3,13 +3,10 @@ import { nanoid } from "nanoid";
 import { posts, users } from "../app.mjs";
 import { pathToPosts } from "../app.mjs";
 import fs from 'fs'
-import { postModel } from "../models/postModel.mjs";
-
-
-
 
 const updateDb = () => {
-    // fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
+    // Uppdaterar JSON-filen
+    fs.writeFileSync(pathToPosts, JSON.stringify(posts, null, 2), 'utf8');
 
 }
 
@@ -27,7 +24,7 @@ const postPost = async (request, response) => {
 
     // den måste utvecklas mer för att ge en error page.
     if (!findUserById) {
-        return console.error("User not found.")
+        return response.status(404).send({msg: "User not found."})
     }
 
     const newPost = {
@@ -50,8 +47,6 @@ const postPost = async (request, response) => {
 
     // FIXA MODAL ELLER IN-LINE FÖR FORMEN
     // FIXA DISPLAY FÖR POSTS (EN I TAGET, INTE FLERA PÅ SAMMA RAD)
-
-
     posts.push(newPost);
     updateDb()
     return response.status(201).send(newPost);

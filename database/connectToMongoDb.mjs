@@ -1,6 +1,9 @@
 import mongoose from "mongoose"
+import dotenv from 'dotenv';
+dotenv.config();
+const uri = process.env.MONGODB_URL;
 
-const uri = "mongodb+srv://JensaFixar:wgBSOn9ivoiqvf6d@jensfixar.f1lv3mv.mongodb.net/gbgBlogBoiler?retryWrites=true&w=majority"
+
 
 // fungerar lokalt 
 // const uri = "mongodb://127.0.0.1:27017/gbgBlogBoiler"

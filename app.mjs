@@ -11,7 +11,7 @@ import {newPost } from "./routes/newPost.mjs";
 // import { detailRouter } from "./routes/detail.mjs";
 
 const app = express();
-const PORT = 3000;
+
 
 // Hämta den aktuella filens sökväg och katalog
 const __filename = fileURLToPath(import.meta.url);
@@ -37,10 +37,10 @@ app.use("/post", postRouter)
 app.use("/", newPost)
 // app.use("/", detailRouter)
 
-app.listen(PORT, () => {
-  console.log(`App is running on: localhost:${PORT} http://localhost:3000/`);
-  // console.log(users, 'users')
-  // console.log(posts, 'posts')
+
+app.listen(process.env.PORT, () => {
+  console.log(`App is running on: localhost:${process.env.PORT} http://localhost:3000/`);
+  
 });
 
 export {users}
